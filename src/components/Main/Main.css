@@ -1,0 +1,73 @@
+.author__content {
+  display: flex;
+}
+.author__avatar {
+  width: 464px;
+  height: 464px;
+  border-radius: 1000px;
+  margin: 80px 0 80px 104px;
+}
+.author__conteiner {
+  display: flex;
+  flex-direction: column;
+  margin-top: 131px;
+  margin-left: 56px;
+  max-width: 600px;
+  color: #1a1b22;
+}
+.author__title {
+  margin: 0;
+  font-family: "Roboto Slab";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 46px;
+}
+.author__text {
+  margin: 24px 0 0 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+}
+@media screen and (max-width: 768px) {
+  .author__avatar {
+    width: 232px;
+    height: 232px;
+    border-radius: 1000px;
+    margin: 61px 0 61px 40px;
+  }
+  .author__conteiner {
+    margin-top: 40px;
+    margin-left: 32px;
+    max-width: 424px;
+  }
+  .author__title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .author__text {
+    margin: 16px 0 0 0;
+  }
+}
+@media screen and (max-width: 425px) {
+  .author__content {
+    display: block;
+    margin-bottom: 80px;
+  }
+  .author__avatar {
+    width: 272px;
+    height: 272px;
+    margin: 32px 24px 24px 24px;
+  }
+  .author__conteiner {
+    margin-top: 40px;
+    margin-left: 32px;
+    max-width: 288px;
+    margin: auto;
+  }
+  .author__text {
+    max-width: 288px;
+  }
+}

@@ -1,0 +1,24 @@
+@import url(../src/vendor/normalize.css);
+@import url(../src//vendor/fonts/fonts.css);
+@import url(../src/components/App/App.css);
+.page {
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: auto;
+}
+@media screen and ( max-width: 768px){
+.page {
+  max-width: 768px;
+}
+.page__content {
+  max-width: 768px;
+}}
+@media screen and (max-width: 425px){
+ 
+  .page {
+    max-width: 320px;
+  }
+  .page__content {
+    max-width: 320px;
+  }
+} 
