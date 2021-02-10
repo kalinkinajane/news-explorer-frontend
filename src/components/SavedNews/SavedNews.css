@@ -9,6 +9,12 @@
   margin-right: 106px;
   padding: 62px 0 62px 0;
 }
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+  .saved__conteiner {
+    width: 90%;
+    margin: auto;
+  }
+}
 @media screen and (max-width: 768px) {
   .saved__conteiner {
     margin-left: 40px;
@@ -16,7 +22,16 @@
     padding: 32px 0 32px 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 495px) and (max-width: 767px) {
+  .saved__conteiner {
+    width: 90%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 8px;
+    /* margin-left: 40px;
+    margin-right: 40px; */
+  }
+}
+@media screen and (max-width: 494px) {
   .saved__conteiner {
     display: block;
     width: 288px;

@@ -6,7 +6,7 @@
   list-style: none;
 }
 .nav__item {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -19,7 +19,7 @@
   background: none;
   box-sizing: border-box;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -106,7 +106,7 @@
     margin: 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 494px) {
   .nav__list-item {
     list-style: none;
     margin-bottom: 30px;
@@ -135,9 +135,11 @@
     padding: 15px 74px 17px;
     margin-top: 22px;
     margin-bottom: 24px;
+    color: white;
   }
   .nav__list-item {
     list-style: none;
+    margin-top: 16px;
     margin-bottom: 30px;
   }
   .nav__list {
@@ -155,5 +157,45 @@
   }
   .nav__menu-white {
     background-color: white;
+  }
+  .nav__item_border-bottom-white {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .nav__item_border-bottom-black {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+@media screen and (min-width: 495px) and (max-width: 767px) {
+  .nav__item {
+    font-size: 14px;
+  }
+  .nav__item:last-child {
+    margin: 0;
+  }
+  .nav__button.nav__button-user {
+    padding: 6px 0 6px 5px;
+    margin: 0;
+    text-overflow: ellipsis;
+    margin-right: 5px;
+  }
+  .nav__list {
+    padding: 0;
+  }
+  .nav__list-item {
+    margin-right: 10px;
+  }
+  .nav__list-item:last-child {
+    margin-right: 0;
+  }
+  .nav__button-exit {
+    padding-right: 6px;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+  .nav__button {
+    margin-right: 30px;
+    font-size: 16px;
   }
 }

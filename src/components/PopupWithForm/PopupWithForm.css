@@ -28,7 +28,7 @@
   border: none;
   padding: 0;
 }
-.popup__conteiner.popup__conteiner-info {
+.popup__conteiner-info {
   padding: 43px 0 51px 43px;
 }
 .popup__conteiner {
@@ -46,9 +46,15 @@
   transition: 0.3s;
   outline: none;
 }
+.popup__input-content:first-child {
+  margin-top: 24px;
+}
+.popup__input-content {
+  margin-top: 30px;
+}
 .popup__input {
   width: 100%;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -58,12 +64,13 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   padding: 0;
   padding-bottom: 10px;
+  margin-top: 9px;
 }
 .popup__button {
   width: 358px;
   background-color: #2f71e5;
   border-radius: 100px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -84,7 +91,7 @@
   text-align: center;
 }
 .popup__title {
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 900;
   font-size: 24px;
@@ -93,7 +100,7 @@
   margin: 0;
 }
 .popup__input-title {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -104,7 +111,7 @@
   margin-top: 31px;
 }
 .popup__link {
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
@@ -129,7 +136,7 @@
 }
 .popup__error {
   margin-top: 3px;
-  font-family: "Inter";
+  font-family: "Inter", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
@@ -139,11 +146,11 @@
 .popup__title-itfo {
   margin: 0 0 14px 0;
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 494px) {
   .popup__conteiner {
     position: absolute;
     bottom: 0;
-    width: 320px;
+    width: 100%;
     height: 500px;
     border-radius: 10px 10px 0 0;
     padding: 16px 16px 0 17px;
@@ -164,5 +171,12 @@
     padding: 21px 0 19px 0;
     margin-top: 24px;
     margin-bottom: 16px;
+  }
+  .popup__title-itfo {
+    margin-top: 50px;
+  }
+  .popup__conteiner-info {
+    padding: 16px 16px 16px 16px;
+    height: 300px;
   }
 }

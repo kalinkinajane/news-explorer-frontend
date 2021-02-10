@@ -17,7 +17,7 @@
 }
 .author__title {
   margin: 0;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab" , 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -25,13 +25,22 @@
 }
 .author__text {
   margin: 24px 0 0 0;
-  font-family: "Roboto";
+  font-family: "Roboto", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
   line-height: 24px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 932px) and ( max-width: 1070px){
+  .author__content {
+    width: 90%;
+    margin: auto;
+  }
+  .author__avatar {
+  margin-left: 0;
+}
+}
+@media screen and (max-width: 931px) {
   .author__avatar {
     width: 232px;
     height: 232px;
@@ -51,15 +60,33 @@
     margin: 16px 0 0 0;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 495px) and ( max-width: 767px){
+  .author__content {
+    display: block;
+  }
+  .author__avatar {
+    width: 400px;
+    height: 400px;
+    display: block;
+    border-radius: 1000px;
+    margin: 80px auto 20px auto
+  }
+  .author__conteiner {
+    max-width: 80%;
+    margin: auto;
+    margin-bottom: 40px;
+  }
+}
+@media screen and (max-width: 494px) {
   .author__content {
     display: block;
     margin-bottom: 80px;
   }
   .author__avatar {
+    display: block;
     width: 272px;
     height: 272px;
-    margin: 32px 24px 24px 24px;
+    margin: 32px auto 24px auto;
   }
   .author__conteiner {
     margin-top: 40px;

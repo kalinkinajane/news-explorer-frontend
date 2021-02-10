@@ -6,8 +6,8 @@ import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
 function Main({ cards, onOpenLogin, isOpen }) {
-  const [isClickLink, setIsClickLink] = React.useState(false);
-  const [isPreloader, setPrelosder] = React.useState(true);
+  const [isClickLink, setIsClickLink] = React.useState(true);
+  const [isPreloader, setPrelosder] = React.useState(false);
   const [dataCards, setCards] = React.useState(cards);
   // Необходимо раскомментировать чтобы увидеть карточки
   // const [dataCards, setCards] = React.useState(null);

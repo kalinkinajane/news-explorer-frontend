@@ -1,6 +1,6 @@
 .saved__title {
   max-width: 712px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -10,7 +10,7 @@
 }
 .saved__info {
   max-width: 530px;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 40px;
@@ -20,7 +20,7 @@
 }
 .saved__keywords {
   max-width: 712px;
-  font-family: "Roboto";
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -29,7 +29,7 @@
   margin: 0 auto 56px 104px;
 }
 .saved__bold {
-  font-family: "Roboto Bold";
+  font-family: "Roboto Bold", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -60,7 +60,7 @@
     line-height: 24px;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 494px) {
   .saved__title {
     max-width: 288px;
     margin: 8px auto 16px;

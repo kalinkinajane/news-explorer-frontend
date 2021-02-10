@@ -1,8 +1,11 @@
+.header{
+  border-bottom: 1px solid #c4c4c4;
+}
 .header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid #c4c4c4;
+  
 }
 .header__burger {
   display: none;
@@ -18,7 +21,7 @@
   }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 494px) {
   .header {
     height: 56px;
   }
@@ -106,5 +109,24 @@
   }
   .header-active-white:before {
     background-color: white;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+  .header__conteiner{
+    width: calc(100% - 30px);
+    margin: auto;
+  }
+  .header__logo {
+    margin: 19px auto 19px 0;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 495px) and (max-width: 767px) {
+  .header {
+    width: 100%;
+  }
+  .header__logo {
+    margin: 19px auto 19px 0;
+    width: 200px;
   }
 }

@@ -24,8 +24,8 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
     >
       <h2 className="popup__title">Вход</h2>
       <form className="popup__form" noValidate>
-        <label className="popup__label">
-          <h3 className="popup__input-title">Email</h3>
+        <div className="popup__input-content">
+          <label className="popup__input-title">Email</label>
           <input
             type="email"
             name="email"
@@ -39,9 +39,9 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
           <span className="popup__error" id="user-email-error">
             {errors.email || ""}
           </span>
-        </label>
-        <label className="popup__label">
-          <h3 className="popup__input-title">Пароль</h3>
+        </div>
+        <div className="popup__input-content">
+          <label className="popup__input-title">Пароль</label>
 
           <input
             type="password"
@@ -54,10 +54,10 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
             onChange={handleChange}
             placeholder="Введите пароль"
           ></input>
-          <span className="popup__error" id="user-password-error">
+          <span className="popup__error" id="user-password-login-error">
             {errors.password || ""}
           </span>
-        </label>
+        </div>
         <button
           type="submit"
           className={`popup__button ${!isValid && "popup__button_disabled"}`}

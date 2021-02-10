@@ -23,7 +23,7 @@ function NewCard({ card }) {
           target="_blank"
           rel="noreferrer"
         >
-          <img className="card__image" alt="" src={card.image} />
+          <img className="card__image" alt={card.title} src={card.image} />
         </a>
         <div className="card__conteiner">
           <div className="card__date">{card.date}</div>
@@ -57,7 +57,7 @@ function NewCard({ card }) {
         target="_blank"
         rel="noreferrer"
       >
-        <img className="card__image" alt="" src={card.image} />
+        <img className="card__image" alt={card.title} src={card.image} />
       </a>
       <div className="card__conteiner">
         <div className="card__date">{card.date}</div>

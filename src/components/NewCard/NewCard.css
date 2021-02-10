@@ -18,7 +18,7 @@
 }
 .card__date {
   color: #b6bcbf;
-  font-family: "Source Sans Pro";
+  font-family: "Source Sans Pro", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -27,7 +27,7 @@
 }
 .card__source {
   color: #b6bcbf;
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -40,12 +40,11 @@
   bottom: 24px;
 }
 .card__conteiner {
-  /* width: 352px; */
   width: calc(100% - 48px);
   margin: auto;
 }
 .card__title {
-  font-family: "Roboto Slab";
+  font-family: "Roboto Slab", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
@@ -53,7 +52,7 @@
   margin: 12px 0 16px 0;
 }
 .card__text {
-  font-family: "Roboto";
+  font-family: "Roboto", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -66,11 +65,6 @@
   overflow-y: hidden;
   /* word-wrap: break-word; */
   text-overflow: ellipsis;
-}
-@media screen and (min-width: 1023px) and (max-width: 1240px) {
-  .card__text {
-    -webkit-line-clamp: 4;
-  }
 }
 .card__image-background {
   position: absolute;
@@ -182,7 +176,7 @@
   background-color: white;
   border-radius: 8px;
   padding: 8px 12px 8px 12px;
-  font-family: "Roboto";
+  font-family: "Roboto", 'Arial', 'Helvetica', sans-serif;;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -190,7 +184,7 @@
   text-align: center;
   margin-left: 24px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1024px){
   .card {
     height: 420px;
   }
@@ -232,7 +226,29 @@
     margin-left: 8px;
   }
 }
-@media screen and (max-width: 425px) {
+@media screen and (min-width: 1023px) and (max-width: 1438px) {
+  .card__text {
+    -webkit-line-clamp: 3;
+  }
+}
+@media screen  and (max-width: 999px) {
+  .card__text {
+    -webkit-line-clamp: 3;
+  }
+}
+@media screen and (min-width: 495px) and ( max-width: 767px){
+  .card__text {
+    -webkit-line-clamp: 3;
+  }
+}
+@media screen and (min-width: 495px) and (max-width: 618px){
+  .card__title {
+    font-size: 22px;
+    line-height: 24px;
+    margin: 10px 0 10px 0;
+  }
+}
+@media screen and (max-width: 494px) {
   .card {
     height: 440px;
     margin-bottom: 10px;
@@ -240,10 +256,20 @@
   .card__image {
     height: 196px;
   }
+  .card__text {
+    -webkit-line-clamp: 2;
+  }
   .card__title {
     font-size: 22px;
-    line-height: 24px;
     margin: 10px 0 10px 0;
     line-height: 26px;
+  }
+  .card__source {
+    left: 16px;
+    bottom: 16px;
+  }
+  .card__conteiner {
+    width: 256px;
+    margin: auto;
   }
 }

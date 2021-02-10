@@ -14,8 +14,8 @@ function Navigation({
   onCloseMenu,
 }) {
   // Необходимо раскомментировать чтоб, отрисовалась страница с авторизацией
-  // const [loggedIn, setLoggedIn] = React.useState(true);
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [loggedIn, setLoggedIn] = React.useState(true);
+  // const [loggedIn, setLoggedIn] = React.useState(false);
   return (
     <>
       {loggedIn ? (
@@ -47,7 +47,7 @@ function Navigation({
             <li className="nav__list-item">
               <Link
                 to="/"
-                className={`nav__item nav__item_${className} ${
+                className={`nav__item nav__item_${className}  ${
                   isClickLink && "nav__item_border-bottom-white"
                 }`}
                 onClick={onClickLink}
