@@ -2,9 +2,10 @@ import React from "react";
 import "../PopupWithForm/PopupWithForm.css";
 import { Link } from "react-router-dom";
 import PopupWithForm from "../PopupWithForm/PopupWithForm";
+
 import { useFormWithValidation } from "../../hooks/validForm";
 
-function PopupAuth({ isOpen, onClose, onOpenLogin }) {
+function Register ({ isOpen, onClose, onOpenLogin, onRegister }) {
   const {
     values,
     handleChange,
@@ -12,10 +13,16 @@ function PopupAuth({ isOpen, onClose, onOpenLogin }) {
     isValid,
     resetForm,
   } = useFormWithValidation();
+
   React.useEffect(() => {
-    resetForm();
+      resetForm();
   }, [isOpen, resetForm]);
 
+const handleSubmit = (e)=>{
+   e.preventDefault();
+  let { password, email, name } = values;
+  onRegister(password, email, name)
+}
   return (
     <PopupWithForm
       name="auth"
@@ -23,7 +30,7 @@ function PopupAuth({ isOpen, onClose, onOpenLogin }) {
       onClose={onClose}
     >
       <h2 className="popup__title">Регистрация</h2>
-      <form className="popup__form" noValidate>
+      <form className="popup__form" noValidate onSubmit={handleSubmit}>
         <div className="popup__input-content">
           <label className="popup__input-title">Email</label>
           <input
@@ -91,4 +98,4 @@ function PopupAuth({ isOpen, onClose, onOpenLogin }) {
     </PopupWithForm>
   );
 }
-export default PopupAuth;
+export default Register;

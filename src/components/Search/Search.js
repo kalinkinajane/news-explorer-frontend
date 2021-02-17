@@ -10,6 +10,7 @@ function Search({
   isClickLink,
   onOpenLogin,
   isOpen,
+  registered
 }) {
   return (
     <section className="search__content">
@@ -20,6 +21,7 @@ function Search({
         isClickLink={isClickLink}
         onOpenLogin={onOpenLogin}
         isOpen={isOpen}
+        registered={registered}
       />
       <div className="search__conteiner">
         <h1 className="search__title">Что творится в мире?</h1>

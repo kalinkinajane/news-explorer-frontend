@@ -1,8 +1,12 @@
 .search__content {
   background: url("../../images/background-search.png") no-repeat;
+  /* background-size: 100%;
+  background-position: center;
+  background-attachment: fixed; */
   background-size: cover;
-  color: white;
-  padding-bottom: 80px;
+  color: white; 
+  /* padding-top: 80px; */
+   padding-bottom: 80px; 
 }
 .search__conteiner {
   width: 608px;

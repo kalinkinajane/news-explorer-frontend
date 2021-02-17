@@ -5,14 +5,15 @@ import Search from "../Search/Search";
 import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
-function Main({ cards, onOpenLogin, isOpen }) {
+function Main({ cards, onOpenLogin, isOpen, registered }) {
   const [isClickLink, setIsClickLink] = React.useState(true);
   const [isPreloader, setPrelosder] = React.useState(false);
   const [dataCards, setCards] = React.useState(cards);
   // Необходимо раскомментировать чтобы увидеть карточки
   // const [dataCards, setCards] = React.useState(null);
-  // const [dataCards, setCards ] = React.useState([]);
   // Раскомментировать чтоб увидеть сообщение "Ничего не найдено"
+  // const [dataCards, setCards ] = React.useState([]);
+  
 
   function defineContent() {
     if (dataCards === null) {
@@ -33,7 +34,7 @@ function Main({ cards, onOpenLogin, isOpen }) {
   }
   return (
     <main className="page__content">
-      <Search
+      <Search registered={registered}
         fill="white"
         className="type_white"
         onClickLink={handleClicklik}

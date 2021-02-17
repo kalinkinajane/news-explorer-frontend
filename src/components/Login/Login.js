@@ -4,7 +4,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 import { useFormWithValidation } from "../../hooks/validForm";
 import "../PopupWithForm/PopupWithForm.css";
 
-function PopupLogin({ isOpen, onClose, onOpenAuth }) {
+function Login({ isOpen, onClose, onOpenAuth, onLogin }) {
   const {
     values,
     handleChange,
@@ -16,6 +16,12 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
     resetForm();
   }, [isOpen, resetForm]);
 
+  const handleSubmit = (e)=>{
+    e.preventDefault();
+   let { password, email } = values;
+   onLogin(password, email);
+   onClose();
+ }
   return (
     <PopupWithForm
       name="login"
@@ -23,7 +29,7 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
       onClose={onClose}
     >
       <h2 className="popup__title">Вход</h2>
-      <form className="popup__form" noValidate>
+      <form className="popup__form" noValidate onSubmit={handleSubmit}>
         <div className="popup__input-content">
           <label className="popup__input-title">Email</label>
           <input
@@ -74,4 +80,4 @@ function PopupLogin({ isOpen, onClose, onOpenAuth }) {
     </PopupWithForm>
   );
 }
-export default PopupLogin;
+export default Login;
