@@ -19,6 +19,7 @@ function Login({ isOpen, onClose, onOpenAuth, onLogin }) {
   const handleSubmit = (e)=>{
     e.preventDefault();
    let { password, email } = values;
+   console.log( password, email)
    onLogin(password, email);
    onClose();
  }

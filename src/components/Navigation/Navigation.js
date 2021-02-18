@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 
 function Navigation({
   className,
@@ -17,6 +18,7 @@ function Navigation({
   // const [logged, setLoggedIn] = React.useState(true);
   // Необходимо раскомментировать чтоб, отрисовалась страница авторизованного пользователя
   // const [logged, setLoggedIn] = React.useState(false);
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
       {registered ? (
@@ -49,7 +51,7 @@ function Navigation({
     <button
       className={`nav__button nav__button-user nav__button_${className}`}
     >
-      Грета
+      {currentUser.name}
       <svg
         className="nav__button-exit"
         width="18"

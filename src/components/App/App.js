@@ -74,7 +74,6 @@ function App() {
     mainApi
       .register(password, email, name)
       .then((data) => {
-        console.log(data);
         setUserData({
           password: data.password,
           email: data.email,
@@ -91,7 +90,19 @@ function App() {
   // проверка токена
   
    // Авторизация пользователя
-   
+   const onLogin = (email, password)=>{
+     mainApi.authorize(email, password)
+    .then((data)=>{
+      if (data.token) {
+        localStorage.setItem('jwt', data.token);
+        setUserData({
+          email: data.email,
+          password: data.password
+        })
+        setInLogged(true)
+      }
+    })
+   }
   
 
   return (
@@ -115,6 +126,7 @@ function App() {
           isOpen={isPopupLoginOpen}
           onClose={closeAllPopups}
           onOpenAuth={openPopupAuth}
+          onLogin={onLogin}
         />
         <Register
           isOpen={isPopupAuthOpen}
