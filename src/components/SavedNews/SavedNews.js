@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewCard from "../NewCard/NewCard";
 
-function SavedNews({ cards }) {
+function SavedNews({ cards, registered, onSignOut }) {
   const [isLinkClickBlack, setIsLinkClickBlack] = React.useState(true);
   function handleClick() {
     setIsLinkClickBlack(false);
@@ -16,6 +16,8 @@ function SavedNews({ cards }) {
         className="type_black"
         onClickSave={handleClick}
         isClickSave={isLinkClickBlack}
+        registered={registered}
+        onSignOut={onSignOut}
       />
       <SavedNewsHeader cards={cards} />
       <div className="saved__cards">

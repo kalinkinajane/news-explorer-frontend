@@ -13,11 +13,9 @@ function Navigation({
   onOpenLogin,
   isClickHeader,
   onCloseMenu,
-  registered
+  registered,
+  onSignOut
 }) {
-  // const [logged, setLoggedIn] = React.useState(true);
-  // Необходимо раскомментировать чтоб, отрисовалась страница авторизованного пользователя
-  // const [logged, setLoggedIn] = React.useState(false);
   const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
@@ -49,7 +47,7 @@ function Navigation({
   </li>
   <li className="nav__list-item">
     <button
-      className={`nav__button nav__button-user nav__button_${className}`}
+      className={`nav__button nav__button-user nav__button_${className}`} onClick={onSignOut}
     >
       {currentUser.name}
       <svg

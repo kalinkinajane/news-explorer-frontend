@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import "./App.css";
 import Main from "../Main/Main";
@@ -25,8 +25,10 @@ function App() {
   const [isPopupLoginOpen, setIsPopupLoginOpen] = React.useState(false);
   const [isPopupAuthOpen, setIsPopupAuthOpen] = React.useState(false);
   const [isPopupInfoOpenClose, setIsPopupInfoOpenClose] = React.useState(false);
-  // const [isPopupInfoOpenClose, setIsPopupInfoOpenClose] = React.useState(true);
-  //Раскомментировать чтоб увидеть попап инфо
+  const history = useHistory();
+  React.useEffect(()=>{
+    tokenCheck()
+  }, [])
   const openPopupLogin = () => {
     setIsPopupInfoOpenClose(false);
     setIsPopupAuthOpen(false);
@@ -57,18 +59,19 @@ function App() {
   }, []);
 
   // загрузка начальных данных
-  // React.useEffect(() => {
-  //   if (InLogged) {
-  //     mainApi
-  //       .getUser()
-  //       .then((data) => {
-  //         setCurrentUser(data);
-  //       })
-  //       .catch((err) => {
-  //         console.log(err);
-  //       });
-  //   }
-  // }, [InLogged]);
+  React.useEffect(() => {
+    if (InLogged) {
+      const jwt = localStorage.getItem('jwt');
+      mainApi
+        .getUser(jwt)
+        .then((data) => {
+          setCurrentUser(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  }, [InLogged]);
   // Регистрация пользователя
   const onRegister = (password, email, name) => {
     mainApi
@@ -88,7 +91,26 @@ function App() {
   };
  
   // проверка токена
-  
+  const tokenCheck = () =>{
+    const jwt = localStorage.getItem('jwt');
+    if(jwt){
+      mainApi.getUser(jwt)
+      .then((res)=>{
+        if(res.email){
+          setUserData({
+            email: res.email
+          })
+          setInLogged(true)
+        }
+      })
+      .catch((err)=>{
+        if (err === 401) {
+          console.log('Токен не передан или передан не в том формате')
+        }
+        console.log('Переданный токен некорректен')
+      })
+    }
+  }
    // Авторизация пользователя
    const onLogin = (email, password)=>{
      mainApi.authorize(email, password)
@@ -103,7 +125,15 @@ function App() {
       }
     })
    }
-  
+  // выход и отчистка локального хранения
+  const onSignOut = () =>{
+    localStorage.removeItem('jwt')
+    setUserData({
+      email: ''
+    })
+    setInLogged(false);
+    history.push('/')
+  }
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -115,10 +145,11 @@ function App() {
               cards={data}
               onOpenLogin={openPopupLogin}
               isOpen={isPopupLoginOpen}
+              onSignOut={onSignOut}
             />
           </Route>
           <Route>
-            <SavedNews cards={saveData} path="/saved-news" />
+            <SavedNews onSignOut={onSignOut} registered={InLogged} cards={saveData} path="/saved-news" />
           </Route>
         </Switch>
         <Footer />

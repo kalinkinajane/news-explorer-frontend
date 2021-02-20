@@ -5,7 +5,7 @@ import Search from "../Search/Search";
 import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
-function Main({ cards, onOpenLogin, isOpen, registered }) {
+function Main({ cards, onOpenLogin, isOpen, registered, onSignOut }) {
   const [isClickLink, setIsClickLink] = React.useState(true);
   const [isPreloader, setPrelosder] = React.useState(false);
   const [dataCards, setCards] = React.useState(cards);
@@ -41,6 +41,7 @@ function Main({ cards, onOpenLogin, isOpen, registered }) {
         isClickLink={isClickLink}
         onOpenLogin={onOpenLogin}
         isOpen={isOpen}
+        onSignOut={onSignOut}
       />
       {defineContent()}
       <div className="author__content page__content">
