@@ -26,23 +26,18 @@ function NewCard({ card }) {
           <img className="card__image" alt={card.title} src={card.image} />
         </a>
         <div className="card__conteiner">
-          <div className="card__date">{card.date}</div>
-          <a
-            className="card__link"
-            href={card.link}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <div className="card__discription">
+            <div className="card__date">{card.date}</div>
             <h2 className="card__title">{card.title}</h2>
             <p className="card__text">{card.text}</p>
-            <p className="card__source">{card.source}</p>
-          </a>
+          </div>
+          <p className="card__source">{card.source}</p>
         </div>
       </div>
     );
   }
   return (
-    <div className="card" key={card.id}>
+    <div className="card" key={card.link}>
       <div className="card__image-background">
         <button
           className="card__save"
@@ -59,20 +54,21 @@ function NewCard({ card }) {
       >
         <img className="card__image" alt={card.title} src={card.image} />
       </a>
-      <div className="card__conteiner">
-        <div className="card__date">{card.date}</div>
-        <a
-          className="card__link"
-          href={card.link}
-          target="_blank"
-          rel="noreferrer"
-        >
-          <h2 className="card__title">{card.title}</h2>
-          <p className="card__text">{card.text}</p>
-          {/* <p className="card__text">{newText + '...'}</p> */}
+      <a
+        className="card__link"
+        href={card.link}
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className="card__conteiner">
+          <div className="card__discription">
+            <div className="card__date">{card.date}</div>
+            <h2 className="card__title">{card.title}</h2>
+            <p className="card__text">{card.text}</p>
+          </div>
           <p className="card__source">{card.source}</p>
-        </a>
-      </div>
+        </div>
+      </a>
     </div>
   );
 }

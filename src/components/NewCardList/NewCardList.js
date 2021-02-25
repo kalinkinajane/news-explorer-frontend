@@ -11,7 +11,7 @@ function NewCardList({ cards }) {
       <h2 className="news__title">Результаты поиска</h2>
       <div className="news__conteiner">
         {cards.slice(0, count).map((item) => (
-          <NewCard key={item.id} card={item} />
+          <NewCard key={item.link} card={item} />
         ))}
       </div>
 

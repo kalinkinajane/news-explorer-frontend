@@ -5,28 +5,30 @@ import Search from "../Search/Search";
 import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
-function Main({ cards, onOpenLogin, isOpen, registered, onSignOut }) {
+function Main({ data, onOpenLogin, isOpen, registered, onSignOut, isLoading, searchNews }) {
   const [isClickLink, setIsClickLink] = React.useState(true);
-  const [isPreloader, setPrelosder] = React.useState(false);
-  const [dataCards, setCards] = React.useState(cards);
+  // const [isPreloader, setPrelosder] = React.useState(false);
+  // const [dataCards, setCards] = React.useState(cards);
   // Необходимо раскомментировать чтобы увидеть карточки
   // const [dataCards, setCards] = React.useState(null);
   // Раскомментировать чтоб увидеть сообщение "Ничего не найдено"
   // const [dataCards, setCards ] = React.useState([]);
   
 
-  function defineContent() {
-    if (dataCards === null) {
+  const renderContent = (data, isLoading) =>{
+    if(isLoading){
+      return <Preloader /> 
+    }
+    if (data === null) {
       return null;
     }
-    if (dataCards.length > 0) {
-      return (
-        <> {isPreloader ? <Preloader /> : <NewCardList cards={cards} />} </>
-      );
-    }
-    if (dataCards.length === 0) {
+    if (data.length === 0) {
       return <NothingFound />;
     }
+    return  <NewCardList cards={data} /> 
+    // if (data.length > 0) {
+    //   return  <NewCardList cards={data} /> 
+    // }
   }
 
   function handleClicklik() {
@@ -42,8 +44,10 @@ function Main({ cards, onOpenLogin, isOpen, registered, onSignOut }) {
         onOpenLogin={onOpenLogin}
         isOpen={isOpen}
         onSignOut={onSignOut}
+        searchNews={searchNews}
       />
-      {defineContent()}
+     
+      {renderContent(data, isLoading)}
       <div className="author__content page__content">
         <img
           className="author__avatar"

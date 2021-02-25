@@ -48,3 +48,19 @@ export const authorize = (password, email) => {
     return Promise.reject(res.status);
   });
 };
+export const createArticle = ({keyword, title, text, date, source, link, image, owner})=>{
+  return fetch(`${BASE_URL}/articles`, {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
+    },
+    body: JSON.stringify({keyword, title, text, date, source, link, image, owner}),
+  }).then((res) => {
+    if (res.ok) {
+      return res.json();
+    }
+    return Promise.reject(res.status);
+  });
+}

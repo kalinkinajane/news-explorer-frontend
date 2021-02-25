@@ -9,9 +9,10 @@ import SavedNews from "../SavedNews/SavedNews";
 import Login from "../Login/Login";
 import Register from "../Register/Register";
 import PopupInfo from "../PopupInfo/PopupInfo";
-import data from "../../data/data.js";
+// import data from "../../data/data.js";
 import saveData from "../../data/savedata.js";
 import * as mainApi from "../../utils/MainApi";
+import * as newsApi from "../../utils/NewsApi";
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
@@ -20,7 +21,8 @@ function App() {
     email: "",
     name: "",
   });
-
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [data, setData] = React.useState(null);
   const [InLogged, setInLogged] = React.useState(false);
   const [isPopupLoginOpen, setIsPopupLoginOpen] = React.useState(false);
   const [isPopupAuthOpen, setIsPopupAuthOpen] = React.useState(false);
@@ -134,6 +136,30 @@ function App() {
     setInLogged(false);
     history.push('/')
   }
+// поиск новостей
+const searchNews = (keyword) =>{
+  setIsLoading(true);
+  newsApi.getArticles(keyword)
+  .then((res) =>{ 
+    const savedKeyword = res.articles.map((item) => {
+      item.keyword = keyword
+      return item
+    })
+    const dataArticles = savedKeyword.map((item) => ({
+      keyword: item.keyword,
+      title: item.title,
+      text: item.description,
+      date: item.publishedAt.slice(0, 10),
+      source: item.source.name,
+      link: item.url,
+      image: item.urlToImage
+    }))
+    setData(dataArticles)
+    localStorage.setItem('articles', JSON.stringify(res.articles))
+   })
+    .finally(setIsLoading(false))
+}
+// сохранение новостей
 
   return (
     <CurrentUserContext.Provider value={currentUser}>
@@ -142,16 +168,19 @@ function App() {
           <Route path="/" exact>
             <Main
               registered={InLogged}
-              cards={data}
+              data={data}
               onOpenLogin={openPopupLogin}
               isOpen={isPopupLoginOpen}
               onSignOut={onSignOut}
+              isLoading={isLoading}
+              searchNews={searchNews}
             />
           </Route>
           <Route>
             <SavedNews onSignOut={onSignOut} registered={InLogged} cards={saveData} path="/saved-news" />
           </Route>
         </Switch>
+       
         <Footer />
         <Login
           isOpen={isPopupLoginOpen}

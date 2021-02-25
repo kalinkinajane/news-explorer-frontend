@@ -11,7 +11,8 @@ function Search({
   onOpenLogin,
   isOpen,
   registered,
-  onSignOut
+  onSignOut,
+  searchNews
 }) {
   return (
     <section className="search__content">
@@ -32,7 +33,7 @@ function Search({
           кабинете.
         </p>
       </div>
-      <SearchForm />
+      <SearchForm searchNews={searchNews}/>
     </section>
   );
 }
