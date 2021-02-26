@@ -16,13 +16,12 @@ function Login({ isOpen, onClose, onOpenAuth, onLogin }) {
     resetForm();
   }, [isOpen, resetForm]);
 
-  const handleSubmit = (e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault();
-   let { password, email } = values;
-   console.log( password, email)
-   onLogin(password, email);
-   onClose();
- }
+    let { password, email } = values;
+    onLogin(password, email);
+    onClose();
+  };
   return (
     <PopupWithForm
       name="login"

@@ -1,11 +1,10 @@
-.header{
+.header {
   border-bottom: 1px solid #c4c4c4;
 }
 .header__content {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
 }
 .header__burger {
   display: none;
@@ -112,7 +111,7 @@
   }
 }
 @media screen and (min-width: 769px) and (max-width: 1070px) {
-  .header__conteiner{
+  .header__conteiner {
     width: calc(100% - 30px);
     margin: auto;
   }

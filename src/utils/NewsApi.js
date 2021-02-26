@@ -1,6 +1,6 @@
 const baseUrl = "https://nomoreparties.co/news/v2";
 // const baseUrl = "https://newsapi.org/v2"
-const apiKey = '8cbd8e7d874c48f1bfe7e1103fb142b8';
+const apiKey = "8cbd8e7d874c48f1bfe7e1103fb142b8";
 const date = new Date();
 const timeStamp = date.setDate(date.getDate() - 7);
 const newtimStamp = new Date(timeStamp);
@@ -41,10 +41,12 @@ const dateNow =
 //     apiKey
 // })
 export const getArticles = (keyword) => {
-  return fetch(`${baseUrl}/everything?language=ru&q=${keyword}&from=${dateFrom}&to=${dateNow}&pageSize=100&apiKey=${apiKey}`, {
-      method: "GET"
-    })
-    .then((res) => { 
+  return fetch(
+    `${baseUrl}/everything?language=ru&q=${keyword}&from=${dateFrom}&to=${dateNow}&pageSize=100&apiKey=${apiKey}`,
+    {
+      method: "GET",
+    }
+  ).then((res) => {
     if (res.ok) {
       return res.json();
     }

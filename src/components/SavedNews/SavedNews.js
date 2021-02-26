@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import SavedNewsHeader from "../SavedNewsHeader/SavedNewsHeader";
 import NewCard from "../NewCard/NewCard";
 
-function SavedNews({ cards, registered, onSignOut }) {
+function SavedNews({ data, registered, onSignOut, onDelete }) {
   const [isLinkClickBlack, setIsLinkClickBlack] = React.useState(true);
   function handleClick() {
     setIsLinkClickBlack(false);
@@ -19,11 +19,17 @@ function SavedNews({ cards, registered, onSignOut }) {
         registered={registered}
         onSignOut={onSignOut}
       />
-      <SavedNewsHeader cards={cards} />
+      <SavedNewsHeader cards={data} />
       <div className="saved__cards">
         <div className="saved__conteiner">
-          {cards.map((item) => (
-            <NewCard key={item._id} card={item} />
+          {data.map((item) => (
+            <NewCard
+              key={item._id}
+              card={item}
+              registered={registered}
+              onDelete={() => onDelete(item)}
+              isSaved={false}
+            />
           ))}
         </div>
       </div>

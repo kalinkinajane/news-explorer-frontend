@@ -19,7 +19,7 @@
 }
 .card__date {
   color: #b6bcbf;
-  font-family: "Source Sans Pro", 'Arial', 'Helvetica', sans-serif;;
+  font-family: "Source Sans Pro", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -35,16 +35,15 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.card__discription{
-  height: 260px; 
+.card__discription {
+  height: 260px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-
 }
 .card__source {
   color: #b6bcbf;
-  font-family: "Roboto Slab", 'Arial', 'Helvetica', sans-serif;;
+  font-family: "Roboto Slab", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
@@ -55,7 +54,7 @@
 }
 
 .card__title {
-  font-family: "Roboto Slab", 'Arial', 'Helvetica', sans-serif;;
+  font-family: "Roboto Slab", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 26px;
@@ -71,7 +70,7 @@
   text-overflow: ellipsis;
 }
 .card__text {
-  font-family: "Roboto", 'Arial', 'Helvetica', sans-serif;;
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 16px;
@@ -89,6 +88,9 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  width: 227px;
+  display: flex;
+  justify-content: space-between;
 }
 .card__save {
   background: url(../../images/save-normal.png) center no-repeat;
@@ -100,70 +102,93 @@
   width: 40px;
   height: 40px;
 }
-[data-tooltip] {
-  position: relative;
+.card__image-background:hover .card__save-info {
+  opacity: 1;
+  transition: 1s;
 }
-.card__save::after {
-  content: attr(data-tooltip);
-  position: absolute;
+.card__icon:hover .card__delet-info {
+  opacity: 1;
+  transition: 1s;
+}
+.card__save-info {
   width: 182px;
-  top: 0;
-  right: 45px;
   background-color: #ffffff;
   border-radius: 8px;
   padding-top: 14px;
   padding-bottom: 14px;
-  pointer-events: none;
-  opacity: 0;
-  transition: 1s;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
   text-align: center;
+  display: inline-block;
+  position: relative;
+  opacity: 0;
 }
-.card__delete::after {
-  content: attr(data-tooltip);
-  position: absolute;
+.card__save-none {
+  opacity: 0;
+}
+.card__delet-info {
   width: 159px;
-  top: 0;
-  right: 45px;
   background-color: #ffffff;
   border-radius: 8px;
   padding-top: 14px;
   padding-bottom: 14px;
-  pointer-events: none;
-  opacity: 0;
-  transition: 1s;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 10px;
   line-height: 12px;
   text-align: center;
+  display: inline-block;
+  position: relative;
+  opacity: 0;
 }
-[data-tooltip]:hover::after {
-  opacity: 1; /* Показываем подсказку */
-}
-.card__save:active,
-.card__save:focus {
-  background: url(../../images/save-click.png) center no-repeat;
+.card__save-active {
+  background: url(../../images/save-normal.png) center no-repeat;
   background-size: 14px 19px;
   background-color: white;
-  cursor: pointer;
-  transition: 0.1s;
-  outline: none;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+  border: none;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  right: 24px;
+  top: 24px;
 }
-/* .card__save.card__save_type_active {
+.card__active {
   background: url(../../images/save-click.png) center no-repeat;
-} */
+  background-size: 14px 19px;
+  cursor: pointer;
+  outline: none;
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px 10px 10px 10px;
+  border: none;
+  width: 40px;
+  height: 40px;
+}
+.card__save-active:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+  opacity: 1;
+}
+.card__active:hover {
+  cursor: pointer;
+  transition: 0.4s;
+  outline: none;
+  opacity: 1;
+}
 .card__save:hover {
   background: url(../../images/save-hover.png) center no-repeat;
   background-color: white;
   cursor: pointer;
   transition: 0.4s;
   outline: none;
+  opacity: 1;
 }
 .card__icon {
   position: absolute;
@@ -195,7 +220,7 @@
   background-color: white;
   border-radius: 8px;
   padding: 8px 12px 8px 12px;
-  font-family: "Roboto", 'Arial', 'Helvetica', sans-serif;;
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
@@ -203,7 +228,7 @@
   text-align: center;
   margin-left: 24px;
 }
-@media screen and (min-width: 768px) and (max-width: 1024px){
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   .card {
     height: 420px;
   }
@@ -220,6 +245,13 @@
   .card__conteiner {
     width: calc(100% - 30px);
     margin: auto;
+    height: 260px;
+  }
+  .card__discription {
+    height: 240px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
   }
   .card__title {
     font-size: 22px;
@@ -247,20 +279,20 @@
 }
 @media screen and (min-width: 1023px) and (max-width: 1438px) {
   .card__text {
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 4;
   }
 }
-@media screen  and (max-width: 999px) {
+@media screen and (max-width: 999px) {
   .card__text {
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
   }
 }
-@media screen and (min-width: 495px) and ( max-width: 767px){
+@media screen and (min-width: 495px) and (max-width: 767px) {
   .card__text {
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 6;
   }
 }
-@media screen and (min-width: 495px) and (max-width: 618px){
+@media screen and (min-width: 495px) and (max-width: 618px) {
   .card__title {
     font-size: 22px;
     line-height: 24px;
@@ -276,7 +308,7 @@
     height: 196px;
   }
   .card__text {
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 3;
   }
   .card__title {
     font-size: 22px;
@@ -290,5 +322,6 @@
   .card__conteiner {
     width: 256px;
     margin: auto;
+    height: 230px;
   }
 }

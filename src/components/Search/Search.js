@@ -12,7 +12,7 @@ function Search({
   isOpen,
   registered,
   onSignOut,
-  searchNews
+  searchNews,
 }) {
   return (
     <section className="search__content">
@@ -33,7 +33,7 @@ function Search({
           кабинете.
         </p>
       </div>
-      <SearchForm searchNews={searchNews}/>
+      <SearchForm searchNews={searchNews} />
     </section>
   );
 }

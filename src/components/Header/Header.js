@@ -12,7 +12,7 @@ function Header({
   onOpenLogin,
   isOpen,
   registered,
-  onSignOut
+  onSignOut,
 }) {
   const [isClickHeader, setclickHeader] = React.useState(false);
   function openCloseMenu() {

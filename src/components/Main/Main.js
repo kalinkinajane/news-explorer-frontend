@@ -5,19 +5,23 @@ import Search from "../Search/Search";
 import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
-function Main({ data, onOpenLogin, isOpen, registered, onSignOut, isLoading, searchNews }) {
+function Main({
+  data,
+  onOpenLogin,
+  isOpen,
+  registered,
+  onSignOut,
+  isLoading,
+  searchNews,
+  onSave,
+  onDelete,
+  openPopupAuth
+}) {
   const [isClickLink, setIsClickLink] = React.useState(true);
-  // const [isPreloader, setPrelosder] = React.useState(false);
-  // const [dataCards, setCards] = React.useState(cards);
-  // Необходимо раскомментировать чтобы увидеть карточки
-  // const [dataCards, setCards] = React.useState(null);
-  // Раскомментировать чтоб увидеть сообщение "Ничего не найдено"
-  // const [dataCards, setCards ] = React.useState([]);
-  
 
-  const renderContent = (data, isLoading) =>{
-    if(isLoading){
-      return <Preloader /> 
+  const renderContent = (data, isLoading, onSave, isSaved) => {
+    if (isLoading) {
+      return <Preloader />;
     }
     if (data === null) {
       return null;
@@ -25,18 +29,25 @@ function Main({ data, onOpenLogin, isOpen, registered, onSignOut, isLoading, sea
     if (data.length === 0) {
       return <NothingFound />;
     }
-    return  <NewCardList cards={data} /> 
-    // if (data.length > 0) {
-    //   return  <NewCardList cards={data} /> 
-    // }
-  }
+    return (
+      <NewCardList
+        cards={data}
+        registered={registered}
+        onSave={onSave}
+        isSaved={isSaved}
+        onDelete={onDelete}
+        openPopupAuth={openPopupAuth}
+      />
+    );
+  };
 
   function handleClicklik() {
     setIsClickLink(false);
   }
   return (
     <main className="page__content">
-      <Search registered={registered}
+      <Search
+        registered={registered}
         fill="white"
         className="type_white"
         onClickLink={handleClicklik}
@@ -46,8 +57,7 @@ function Main({ data, onOpenLogin, isOpen, registered, onSignOut, isLoading, sea
         onSignOut={onSignOut}
         searchNews={searchNews}
       />
-     
-      {renderContent(data, isLoading)}
+      {renderContent(data, isLoading, onSave)}
       <div className="author__content page__content">
         <img
           className="author__avatar"

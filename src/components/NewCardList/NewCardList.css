@@ -66,8 +66,6 @@
     width: 90%;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 8px;
-    /* margin-left: 40px;
-    margin-right: 40px; */
   }
 }
 @media screen and (max-width: 494px) {

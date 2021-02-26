@@ -5,7 +5,7 @@ import PopupWithForm from "../PopupWithForm/PopupWithForm";
 
 import { useFormWithValidation } from "../../hooks/validForm";
 
-function Register ({ isOpen, onClose, onOpenLogin, onRegister }) {
+function Register({ isOpen, onClose, onOpenLogin, onRegister }) {
   const {
     values,
     handleChange,
@@ -15,14 +15,14 @@ function Register ({ isOpen, onClose, onOpenLogin, onRegister }) {
   } = useFormWithValidation();
 
   React.useEffect(() => {
-      resetForm();
+    resetForm();
   }, [isOpen, resetForm]);
 
-const handleSubmit = (e)=>{
-   e.preventDefault();
-  let { password, email, name } = values;
-  onRegister(password, email, name)
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    let { password, email, name } = values;
+    onRegister(password, email, name);
+  };
   return (
     <PopupWithForm
       name="auth"
