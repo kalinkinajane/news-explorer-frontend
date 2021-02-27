@@ -21,6 +21,7 @@ function App() {
     name: "",
   });
   const [isLoading, setIsLoading] = React.useState(false);
+  console.log(isLoading)
   const [data, setData] = React.useState(null);
   const [savedArticles, setSavedArticles] = React.useState([]);
   const [InLogged, setInLogged] = React.useState(false);
@@ -168,7 +169,7 @@ function App() {
       .catch((err) => {
         console.log(err);
       })
-      .finally(setIsLoading(false));
+      .finally(() => setIsLoading(false));
   };
   // сохранение новостей
   const onSave = (card) => {
