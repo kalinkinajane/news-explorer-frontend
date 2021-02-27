@@ -20,7 +20,7 @@ function Register({ isOpen, onClose, onOpenLogin, onRegister }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    let { password, email, name } = values;
+    const { password, email, name } = values;
     onRegister(password, email, name);
   };
   return (

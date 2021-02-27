@@ -12,6 +12,8 @@ import PopupInfo from "../PopupInfo/PopupInfo";
 import ProtectedRoute from "../ProtectedRoute";
 import * as mainApi from "../../utils/MainApi";
 import * as newsApi from "../../utils/NewsApi";
+import changeTime from "../../utils/changeTime";
+
 
 function App() {
   const [currentUser, setCurrentUser] = React.useState({});
@@ -21,9 +23,9 @@ function App() {
     name: "",
   });
   const [isLoading, setIsLoading] = React.useState(false);
-  console.log(isLoading)
   const [data, setData] = React.useState(null);
   const [savedArticles, setSavedArticles] = React.useState([]);
+ 
   const [InLogged, setInLogged] = React.useState(false);
   const [isPopupLoginOpen, setIsPopupLoginOpen] = React.useState(false);
   const [isPopupAuthOpen, setIsPopupAuthOpen] = React.useState(false);
@@ -57,7 +59,6 @@ function App() {
       document.removeEventListener("keydown", handleESCclose);
     };
   }, []);
-
   // загрузка начальных данных
   React.useEffect(() => {
     if (InLogged) {
@@ -124,6 +125,7 @@ function App() {
             email: data.email,
             password: data.password,
           });
+          setCurrentUser(data);
           setInLogged(true);
           localStorage.removeItem("articles");
         }
@@ -158,7 +160,7 @@ function App() {
           keyword: item.keyword,
           title: item.title,
           text: item.description,
-          date: item.publishedAt.slice(0, 10),
+          date: changeTime(item.publishedAt),
           source: item.source.name,
           link: item.url,
           image: item.urlToImage,
@@ -182,7 +184,6 @@ function App() {
           }
           return item;
         });
-        console.log(saved);
         localStorage.removeItem("articles");
         setData(saved);
         setSavedArticles([newData, ...savedArticles]);
@@ -192,6 +193,7 @@ function App() {
         console.log(err);
       });
   };
+
   // Удаление новостей
   const onDelete = (card) => {
     return mainApi

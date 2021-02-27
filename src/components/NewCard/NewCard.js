@@ -6,7 +6,6 @@ const NewCard = ({ card, registered, onSave, isSaved, onDelete, openPopupAuth })
   function handleClick() {
     onSave(card);
   }
-
   const renderButton = (registered, isSaved) => {
     if (!registered) {
       return (

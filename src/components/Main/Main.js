@@ -18,7 +18,6 @@ function Main({
   openPopupAuth
 }) {
   const [isClickLink, setIsClickLink] = React.useState(true);
-console.log(isLoading)
   const renderContent = (data, isLoading, onSave, isSaved) => {
     if (isLoading) {
       return <Preloader />;
