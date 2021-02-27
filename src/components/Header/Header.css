@@ -1,0 +1,132 @@
+.header{
+  border-bottom: 1px solid #c4c4c4;
+}
+.header__content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+}
+.header__burger {
+  display: none;
+}
+.header__logo {
+  width: 200px;
+  height: 24px;
+  margin: 30px auto 26px 104px;
+}
+@media screen and (max-width: 768px) {
+  .header__logo {
+    margin: 22px auto 19px 40px;
+  }
+}
+
+@media screen and (max-width: 494px) {
+  .header {
+    height: 56px;
+  }
+  .header:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 56px;
+    box-shadow: inset 0px -1px 0px rgba(255, 255, 255, 0.2);
+    z-index: 2;
+  }
+  .header__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .header__burger {
+    display: flex;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    z-index: 3;
+    margin-right: 16px;
+  }
+  .header__burger:before,
+  .header__burger:after {
+    content: "";
+    background-color: #ffffff;
+    position: absolute;
+    width: 16px;
+    height: 2px;
+    left: 0;
+  }
+  .header__burger:before {
+    top: 8px;
+  }
+  .header__burger:after {
+    bottom: 8px;
+  }
+  .header__logo {
+    width: 117px;
+    height: 24px;
+    z-index: 3;
+    position: relative;
+    margin: 16px auto 16px 16px;
+  }
+  .header__burger-active:before {
+    transform: rotate(45deg);
+    top: 12px;
+  }
+  .header__burger-active:after {
+    transform: rotate(-45deg);
+    bottom: 10px;
+  }
+  .header-active:before {
+    background-color: #1a1b22;
+  }
+  .header-none:before {
+    z-index: 0;
+  }
+  .header-active {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  .header__logo-none {
+    display: none;
+  }
+  .header__burger-none {
+    display: none;
+  }
+  .header__burger_type_black:before,
+  .header__burger_type_black:after {
+    background-color: #1a1b22;
+  }
+  .header__burger-active-type_black:before,
+  .header__burger-active-type_black:after {
+    background-color: white;
+  }
+  .header-active-white:before {
+    background-color: white;
+  }
+}
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+  .header__conteiner{
+    width: calc(100% - 30px);
+    margin: auto;
+  }
+  .header__logo {
+    margin: 19px auto 19px 0;
+    width: 200px;
+  }
+}
+@media screen and (min-width: 495px) and (max-width: 767px) {
+  .header {
+    width: 100%;
+  }
+  .header__logo {
+    margin: 19px auto 19px 0;
+    width: 200px;
+  }
+}

@@ -1,0 +1,38 @@
+@import url(../src/vendor/normalize.css);
+@import url(../src//vendor/fonts/fonts.css);
+@import url(../src/components/App/App.css);
+.page {
+  min-height: 100vh;
+  max-width: 1440px;
+  margin: auto;
+}
+
+@media screen and (min-width: 769px) and ( max-width: 1070px){
+  .page {
+    width: 100%;
+  }
+  .page__content {
+    width: 100%;
+  }
+}
+@media screen and ( max-width: 768px){
+.page {
+  max-width: 768px;
+}
+.page__content {
+  max-width: 768px;
+}}
+
+@media screen and (min-width: 321px) and ( max-width: 767px){
+  .page {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 320px){
+  .page {
+    max-width: 320px;
+  }
+  .page__content {
+    max-width: 320px;
+  }
+} 

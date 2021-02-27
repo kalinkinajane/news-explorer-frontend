@@ -1,0 +1,40 @@
+.nothing-found {
+  background-color: #f5f6f7;
+  margin: auto;
+  padding-top: 86px;
+  padding-bottom: 80px;
+}
+.nothing-found__image {
+  margin: 0 678px 24px auto;
+  width: 74px;
+  height: 74px;
+  display: block;
+}
+.nothing-found__title {
+  margin: auto;
+  margin-bottom: 16px;
+  max-width: 356px;
+  font-family: "Roboto Slab", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 26px;
+  line-height: 30px;
+  text-align: center;
+  color: #1a1b22;
+}
+.nothing-found__text {
+  margin: auto;
+  max-width: 356px;
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+}
+@media screen and (max-width: 768px) {
+  .nothing-found__image {
+    margin: auto;
+  }
+}

@@ -1,0 +1,118 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer__copyright {
+  max-width: 433px;
+  margin: 32px 0 26px 104px;
+  color: #b6bcbf;
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+}
+.footer__content {
+  display: flex;
+}
+.footer__menu {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  font-family: "Roboto", "Arial", "Helvetica", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  color: #1a1b22;
+  margin-right: 42px;
+}
+.footer__menu-main {
+  width: 112px;
+}
+.footer__menu-link {
+  width: 192px;
+  text-decoration: none;
+  color: #1a1b22;
+}
+.footer__social-link:first-child {
+  margin-right: 28px;
+}
+.footer__social {
+  margin-right: 106px;
+}
+@media screen and (min-width: 769px) and (max-width: 1070px) {
+  .footer {
+    width: 90%;
+    margin: auto;
+  }
+  .footer__copyright {
+    margin-left: 0;
+  }
+  .footer__social {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 768px) {
+  .footer__copyright {
+    max-width: 300px;
+    margin: 24px 0 18px 40px;
+  }
+  .footer__menu {
+    font-size: 18px;
+    line-height: 24px;
+    margin-right: 25px;
+  }
+  .footer__social {
+    margin-right: 41px;
+  }
+  .footer__menu-main {
+    width: 88px;
+  }
+  .footer__menu-link {
+    width: 176px;
+  }
+}
+@media screen and (min-width: 495px) and (max-width: 767px) {
+  .footer__copyright {
+    max-width: 300px;
+    margin: 24px 0 18px 20px;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .footer__social {
+    margin-right: 10px;
+  }
+}
+@media screen and (max-width: 494px) {
+  .footer {
+    flex-wrap: wrap-reverse;
+  }
+  .footer__menu {
+    display: inline-block;
+    width: 200px;
+    text-align: start;
+    margin-left: 16px;
+    margin-right: auto;
+  }
+  .footer__menu-main {
+    margin: 0 0 20px 0;
+  }
+  .footer__content {
+    margin-top: 20px;
+  }
+  .footer__social {
+    display: flex;
+    margin-right: 18px;
+  }
+  .footer__social-link:first-child {
+    margin-right: 20px;
+  }
+  .footer__copyright {
+    max-width: 288px;
+    margin: 38px auto 16px auto;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
