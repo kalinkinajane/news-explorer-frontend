@@ -1,4 +1,7 @@
 # news-explorer-frontend
+
+ссылка: https://diplomakalinkina.students.nomoredomains.rocks
+
 1. В компоненте Navigation
 Необходимо раскомментировать  стейт переменную, чтобы отрисовалась страница с авторизацией 
 2. В компоненте Main
