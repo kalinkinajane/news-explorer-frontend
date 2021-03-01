@@ -1,5 +1,4 @@
 # news-explorer-frontend
-
 ссылка: https://diplomakalinkina.students.nomoredomains.rocks
 
 1. В компоненте Navigation
