@@ -1,6 +1,7 @@
 import React from "react";
 import "./Navigation.css";
 import { Link } from "react-router-dom";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 function Navigation({
   className,
@@ -12,36 +13,13 @@ function Navigation({
   onOpenLogin,
   isClickHeader,
   onCloseMenu,
+  registered,
+  onSignOut,
 }) {
-  // Необходимо раскомментировать чтоб, отрисовалась страница с авторизацией
-  const [loggedIn, setLoggedIn] = React.useState(true);
-  // const [loggedIn, setLoggedIn] = React.useState(false);
+  const currentUser = React.useContext(CurrentUserContext);
   return (
     <>
-      {loggedIn ? (
-        <nav className={`nav__menu ${isClickHeader ? "nav__menu-activ" : ""} `}>
-          <ul className="nav__list">
-            <li className="nav__list-item">
-              <Link
-                to="/"
-                className={`nav__item ${
-                  isClickLink && "nav__item_border-bottom-white"
-                }`}
-              >
-                Главная
-              </Link>
-            </li>
-            <li className="nav__list-item" onClick={onCloseMenu}>
-              <button
-                className="nav__button nav__button-auth"
-                onClick={onOpenLogin}
-              >
-                Авторизация
-              </button>
-            </li>
-          </ul>
-        </nav>
-      ) : (
+      {registered ? (
         <nav className={`nav__menu ${isClickHeader ? "nav__menu-activ" : ""}`}>
           <ul className="nav__list">
             <li className="nav__list-item">
@@ -69,8 +47,9 @@ function Navigation({
             <li className="nav__list-item">
               <button
                 className={`nav__button nav__button-user nav__button_${className}`}
+                onClick={onSignOut}
               >
-                Грета
+                {currentUser.name}
                 <svg
                   className="nav__button-exit"
                   width="18"
@@ -84,6 +63,29 @@ function Navigation({
                     d="M6 2H2v12h4v2H2a2 2 0 01-2-2V2a2 2 0 012-2h4v2zm7.586 7l-4.293 4.134 1.414 1.362 6.707-6.459-6.707-6.459L9.293 2.94l4.293 4.134H4V9h9.586z"
                   />
                 </svg>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      ) : (
+        <nav className={`nav__menu ${isClickHeader ? "nav__menu-activ" : ""} `}>
+          <ul className="nav__list">
+            <li className="nav__list-item">
+              <Link
+                to="/"
+                className={`nav__item ${
+                  isClickLink && "nav__item_border-bottom-white"
+                }`}
+              >
+                Главная
+              </Link>
+            </li>
+            <li className="nav__list-item" onClick={onCloseMenu}>
+              <button
+                className="nav__button nav__button-auth"
+                onClick={onOpenLogin}
+              >
+                Авторизация
               </button>
             </li>
           </ul>

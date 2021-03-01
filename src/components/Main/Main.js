@@ -5,28 +5,40 @@ import Search from "../Search/Search";
 import NewCardList from "../NewCardList/NewCardList";
 import Preloader from "../Preloader/Preloader";
 import NothingFound from "../NothingFound/NothingFound";
-function Main({ cards, onOpenLogin, isOpen }) {
+function Main({
+  data,
+  onOpenLogin,
+  isOpen,
+  registered,
+  onSignOut,
+  isLoading,
+  searchNews,
+  onSave,
+  onDelete,
+  openPopupAuth
+}) {
   const [isClickLink, setIsClickLink] = React.useState(true);
-  const [isPreloader, setPrelosder] = React.useState(false);
-  const [dataCards, setCards] = React.useState(cards);
-  // Необходимо раскомментировать чтобы увидеть карточки
-  // const [dataCards, setCards] = React.useState(null);
-  // const [dataCards, setCards ] = React.useState([]);
-  // Раскомментировать чтоб увидеть сообщение "Ничего не найдено"
-
-  function defineContent() {
-    if (dataCards === null) {
+  const renderContent = (data, isLoading, onSave, isSaved) => {
+    if (isLoading) {
+      return <Preloader />;
+    }
+    if (data === null) {
       return null;
     }
-    if (dataCards.length > 0) {
-      return (
-        <> {isPreloader ? <Preloader /> : <NewCardList cards={cards} />} </>
-      );
-    }
-    if (dataCards.length === 0) {
+    if (data.length === 0) {
       return <NothingFound />;
     }
-  }
+    return (
+      <NewCardList
+        cards={data}
+        registered={registered}
+        onSave={onSave}
+        isSaved={isSaved}
+        onDelete={onDelete}
+        openPopupAuth={openPopupAuth}
+      />
+    );
+  };
 
   function handleClicklik() {
     setIsClickLink(false);
@@ -34,14 +46,17 @@ function Main({ cards, onOpenLogin, isOpen }) {
   return (
     <main className="page__content">
       <Search
+        registered={registered}
         fill="white"
         className="type_white"
         onClickLink={handleClicklik}
         isClickLink={isClickLink}
         onOpenLogin={onOpenLogin}
         isOpen={isOpen}
+        onSignOut={onSignOut}
+        searchNews={searchNews}
       />
-      {defineContent()}
+      {renderContent(data, isLoading, onSave)}
       <div className="author__content page__content">
         <img
           className="author__avatar"

@@ -11,6 +11,8 @@ function Header({
   isClickSave,
   onOpenLogin,
   isOpen,
+  registered,
+  onSignOut,
 }) {
   const [isClickHeader, setclickHeader] = React.useState(false);
   function openCloseMenu() {
@@ -53,6 +55,8 @@ function Header({
             isClickSave={isClickSave}
             onOpenLogin={onOpenLogin}
             onCloseMenu={openCloseMenu}
+            registered={registered}
+            onSignOut={onSignOut}
           />
         </div>
       </div>

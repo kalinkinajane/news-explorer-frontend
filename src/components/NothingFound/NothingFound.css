@@ -5,7 +5,8 @@
   padding-bottom: 80px;
 }
 .nothing-found__image {
-  margin: 0 678px 24px auto;
+  margin: auto;
+  margin-bottom: 24px;
   width: 74px;
   height: 74px;
   display: block;

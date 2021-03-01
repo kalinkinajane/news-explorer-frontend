@@ -1,6 +1,9 @@
 .preloader {
-  background-color: #333;
-  /* overflow: hidden; */
+  background-color: #f5f6f7;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .preloader__content {
@@ -11,19 +14,27 @@
   border-bottom-color: #888;
 
   border-radius: 50%;
-
-  position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
 
-  animation: spin 3.75s infinite linear;
+  animation: spin 0.75s infinite linear;
 }
 
 @keyframes spin {
   100% {
     transform: rotate(360deg);
   }
+}
+.preloader__text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: center;
+  color: #b6bcbf;
+  margin-top: 24px;
 }

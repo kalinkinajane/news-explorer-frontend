@@ -30,6 +30,8 @@
 }
 .footer__menu-main {
   width: 112px;
+  text-decoration: none;
+  color: #1a1b22;
 }
 .footer__menu-link {
   width: 192px;
@@ -90,7 +92,7 @@
     flex-wrap: wrap-reverse;
   }
   .footer__menu {
-    display: inline-block;
+    flex-wrap: wrap;
     width: 200px;
     text-align: start;
     margin-left: 16px;

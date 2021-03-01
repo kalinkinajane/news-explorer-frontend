@@ -1,7 +1,7 @@
 import "./Footer.css";
 import LogoGit from "../../images/logoGit.png";
 import LogoFacebook from "../../images/logoFacebook.png";
-
+import { Link } from "react-router-dom";
 function Footer() {
   return (
     <footer className="footer page__content">
@@ -10,7 +10,9 @@ function Footer() {
       </p>
       <div className="footer__content">
         <div className="footer__menu">
-          <div className="footer__menu-main">Главная</div>
+          <Link to="/" className="footer__menu-main">
+            Главная
+          </Link>
           <a
             className="footer__menu-link "
             href="https://praktikum.yandex.ru"

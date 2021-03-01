@@ -1,6 +1,13 @@
 @import url(../src/vendor/normalize.css);
 @import url(../src//vendor/fonts/fonts.css);
 @import url(../src/components/App/App.css);
+.block {
+  border:1px solid black;
+  width: 200px;
+  height: 300px;
+  display:inline-block;
+  margin:10px;
+}
 .page {
   min-height: 100vh;
   max-width: 1440px;

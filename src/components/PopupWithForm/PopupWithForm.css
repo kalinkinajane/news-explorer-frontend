@@ -143,6 +143,13 @@
   line-height: 15px;
   color: #ff0000;
 }
+.popup__error-info {
+  margin: auto;
+  width: 300px;
+  display: block;
+  text-align: center;
+  margin-top: 17px;
+}
 .popup__title-itfo {
   margin: 0 0 14px 0;
 }
